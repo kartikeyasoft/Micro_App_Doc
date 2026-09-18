@@ -1,0 +1,4 @@
+CREATE USER appuser WITH PASSWORD 'App@12345';
+CREATE DATABASE auth_db OWNER appuser;
+CREATE DATABASE user_db OWNER appuser;
+CREATE DATABASE item_db OWNER appuser;

@@ -1,0 +1,9 @@
+async function req(url,opt){const r=await fetch(url,opt);const t=await r.text();let d;try{d=JSON.parse(t)}catch{d=t}
+if(!r.ok)throw new Error(typeof d==="string"?d:JSON.stringify(d));return d;}
+const val=id=>document.getElementById(id).value;
+async function register(){try{let d=await req("/api/auth/register",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({username:val("username"),email:val("email"),password:val("password")})});authResult.textContent=JSON.stringify(d,null,2)}catch(e){authResult.textContent=e.message}}
+async function login(){try{let d=await req("/api/auth/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({username:val("username"),password:val("password")})});userId.value=d.userId||"";authResult.textContent=JSON.stringify(d,null,2)}catch(e){authResult.textContent=e.message}}
+async function createUser(){try{let d=await req("/api/users",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({userId:Number(val("userId")),firstName:val("firstName"),lastName:val("lastName"),phone:val("phone"),address:val("address")})});userResult.textContent=JSON.stringify(d,null,2)}catch(e){userResult.textContent=e.message}}
+async function loadUsers(){try{userResult.textContent=JSON.stringify(await req("/api/users"),null,2)}catch(e){userResult.textContent=e.message}}
+async function createItem(){try{let d=await req("/api/items",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:val("itemName"),description:val("itemDescription"),price:Number(val("itemPrice")),quantity:Number(val("itemQuantity"))})});itemResult.textContent=JSON.stringify(d,null,2)}catch(e){itemResult.textContent=e.message}}
+async function loadItems(){try{itemResult.textContent=JSON.stringify(await req("/api/items"),null,2)}catch(e){itemResult.textContent=e.message}}

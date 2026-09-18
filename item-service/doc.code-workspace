@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"name": "nodejs-2tier",
+			"path": "../../nodejs-2tier"
+		}
+	],
+	"settings": {}
+}
