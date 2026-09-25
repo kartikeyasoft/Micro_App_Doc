@@ -70,7 +70,7 @@ services:
 
   frontend:
     build: ./frontend
-    image: kartikeyasoft/frontend-service:latest
+    image: kartikeyasoft/frontend:latest
     container_name: frontend
     ports:
       - "80:80"
