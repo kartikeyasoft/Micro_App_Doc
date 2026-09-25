@@ -16,6 +16,7 @@ services:
 
   auth-service:
     build: ./auth-service
+    image: kartikeyasoft/auth-service:latest
     container_name: auth-service
 
     environment:
@@ -33,6 +34,7 @@ services:
 
   user-service:
     build: ./user-service
+    image: kartikeyasoft/user-service:latest
     container_name: user-service
 
     environment:
@@ -50,6 +52,7 @@ services:
 
   item-service:
     build: ./item-service
+    image: kartikeyasoft/item-service:latest
     container_name: item-service
 
     environment:
@@ -67,6 +70,7 @@ services:
 
   frontend:
     build: ./frontend
+    image: kartikeyasoft/frontend-service:latest
     container_name: frontend
     ports:
       - "80:80"
